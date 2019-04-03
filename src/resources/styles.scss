@@ -358,3 +358,78 @@ footer .footer_copyright {
   padding: 15px 20px;
   text-align: center;
 }
+
+@media all and (max-width: 960px){
+  .center_wrapper {
+    width: auto;
+  }
+}
+
+@media all and (max-width: 720px){
+  .vn_wrapper{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .vn_item .vn_outer {
+    width: auto;
+  }
+}
+
+@media all and (max-width: 640px){
+  .countdown_bottom {
+    padding: 10px 5px;
+  }
+  .countdown_wrapper .countdown_time{
+    font-size: 40px;
+    padding-right: 20px;
+  }
+  .pricing_wrapper{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .pricing_wrapper .pricing_item{
+    width: 360px;
+  }
+  .vn_wrapper{
+    flex-wrap: wrap;
+    padding: 50px 0;
+  }
+  .vn_item{
+    margin-top: 80px;
+    width: 360px;
+  }
+  .vn_item .vn_icon_square{
+    left: 123px;
+  }
+  .vn_item .vn_icon{
+    left: 148px;
+  }
+  .discount_wrapper{
+
+  }
+  .discount_wrapper .discount_porcentage{
+    padding-right: 30px;
+  }
+  .discount_wrapper .discount_porcentage span:nth-child(1){
+    font-size: 50px;
+  }
+  .artist_name {
+    width: auto;
+    max-width: 400px;
+    height: auto;
+  }
+  .artist_name .wrapper{
+    font-size: 24px;
+    height: auto;
+    padding: 20px;
+  }
+}
+
+@media all and (max-width: 390px){
+  .countdown_wrapper .countdown_bottom{
+    padding: 10px 5px;
+  }
+  .countdown_wrapper .countdown_time{
+    font-size: 32px;
+  }
+}

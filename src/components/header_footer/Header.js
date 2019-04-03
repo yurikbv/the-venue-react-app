@@ -1,31 +1,40 @@
 import React, {Component} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '../../resources/images/icons/menu.png';
 import SideDrawer from "./SideDrawer";
 
 class Header extends Component {
 
   state = {
-    drawerOpen: false
+    drawerOpen: false,
+    headerShow: false
   };
 
-  toggleDrawer = value => {
-    this.setState({
-      drawerOpen: value
-    })
+  componentDidMount() {
+    window.addEventListener('scroll',this.handleScroll)
+  }
+
+  handleScroll = () => {
+    if(window.scrollY > 0){
+      this.setState({headerShow: true})
+    } else this.setState({headerShow: false})
+  };
+
+  toggleDrawer = (value) => {
+    value !== this.state.drawerOpen && this.setState({ drawerOpen: value })
   };
 
   render() {
 
-    const {drawerOpen} = this.state;
+    const {drawerOpen ,headerShow} = this.state;
 
     return (
       <AppBar
         position="fixed"
         style={{
-          background: '#2f2f2f',
+          background: headerShow ? '#2f2f2f' : 'transparent',
           boxShadow: 'none',
           padding: '10px 0'}}
       >
@@ -39,11 +48,11 @@ class Header extends Component {
             color="inherit"
             onClick={() => this.toggleDrawer(true)}
           >
-            <MenuIcon/>
+            <img src={MenuIcon} alt="MenuIcon" style={{height:'18px',width:'18px'}}/>
           </IconButton>
           <SideDrawer
             open={drawerOpen}
-            onClose={(value) => this.toggleDrawer(value)}
+            close={(value) => this.toggleDrawer(value)}
           />
         </Toolbar>
       </AppBar>
